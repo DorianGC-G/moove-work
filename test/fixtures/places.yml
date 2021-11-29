@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  categories: MyString
+  tag: MyString
+  price_per_day: 1
+  renter: MyString
+  next_available: 2021-11-29
+  max_capacity: 1
+  size: 1
+
+two:
+  categories: MyString
+  tag: MyString
+  price_per_day: 1
+  renter: MyString
+  next_available: 2021-11-29
+  max_capacity: 1
+  size: 1
