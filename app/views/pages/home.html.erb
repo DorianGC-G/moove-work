@@ -1,2 +1,30 @@
 <h1>wesh</h1>
 <%= link_to "Offices", places_path %>
+
+<%= form_tag places_path, method: :get do %>
+  <span>I'm looking for a workplace in</span>
+  <%= text_field_tag :queryCity,
+    params[:queryCity],
+    class: "form-control",
+    placeholder: "City"
+  %><br />
+  <span>for</span>
+  <%= number_field_tag :queryMinCapacity,
+    params[:queryMinCapacity],
+    class: "form-control",
+    placeholder: "2"
+  %><span> moove workers</span><br />
+  <span>I'll arrive on </span>
+  <%= date_field_tag :queryDate,
+    params[:queryDate],
+    class: "form-control",
+    min: Date.tomorrow
+  %><br />
+  <span>and i'll stay for </span>
+  <%= number_field_tag :queryStay,
+    params[:queryStay],
+    class: "form-control",
+    placeholder: "7"
+  %><span> days</span>
+  <%= submit_tag "Search" %>
+<% end %>

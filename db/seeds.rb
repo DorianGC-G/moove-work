@@ -65,13 +65,24 @@ place6 = {
   price_per_day: 48, 
   renter: "WeWork", 
   next_available: Date.today, 
+  max_capacity: 12, 
+  size: 84, 
+  address: "41-43 Rue des jambons fromages", 
+  city: "Paris 7th"
+}
+place7 = {
+  categories: ["office", "meeting room"], 
+  tags:["parking", "bike storage", "natural light", "roof terrace", "outdoor spaces"], 
+  price_per_day: 48, 
+  renter: "WeWork", 
+  next_available: Date.new(2021,12,31), 
   max_capacity: 15, 
   size: 84, 
   address: "41-43 Rue Camille-Desmoulins", 
-  city: "Paris 7th"
+  city: "London"
 }
 
-places = [place1, place2, place3, place4, place5, place6]
+places = [place1, place2, place3, place4, place5, place6, place7]
 
 places.each do |attributes|
   place = Place.create!(attributes)

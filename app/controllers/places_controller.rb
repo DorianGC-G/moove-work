@@ -1,5 +1,25 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.all
+    if (params[:queryCity] == "") & (params[:queryMinCapacity] == "") & (params[:queryDate] == "") & (params[:queryStay] == "")
+      redirect_to root_path
+      flash.notice = "empty search you baboon"
+    else
+      @places = Place.all
+    end
+
+    if params[:queryCity].present?
+      sql_query_city = "city ILIKE :queryCity"
+      @places = @places.where(sql_query_city, queryCity: "%#{params[:queryCity]}%")
+    end
+
+    if params[:queryMinCapacity].present?
+      sql_query_min_capacity = "max_capacity >= :queryMinCapacity"
+      @places = @places.where(sql_query_min_capacity, queryMinCapacity: params[:queryMinCapacity])
+    end
+    
+    if params[:queryDate].present?
+      sql_query_date = "next_available < :queryDate"
+      @places = @places.where(sql_query_date, queryDate: params[:queryDate])
+    end
   end
 end
