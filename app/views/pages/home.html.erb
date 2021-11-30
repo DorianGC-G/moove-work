@@ -15,16 +15,16 @@
     placeholder: "2"
   %><span> moove workers</span><br />
   <span>I'll arrive on </span>
-  <%= date_field_tag :queryDate,
+  <%= date_field_tag :queryArriveDate,
     params[:queryDate],
     class: "form-control",
     min: Date.tomorrow
   %><br />
-  <span>and i'll stay for </span>
-  <%= number_field_tag :queryStay,
-    params[:queryStay],
+  <span>and i'll leave on </span>
+  <%= date_field_tag :queryLeaveDate,
+    params[:queryLeaveDate],
     class: "form-control",
-    placeholder: "7"
-  %><span> days</span>
+    min: Date.tomorrow
+  %>
   <%= submit_tag "Search" %>
 <% end %>
