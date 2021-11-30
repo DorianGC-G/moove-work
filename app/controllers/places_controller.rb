@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   def index
     if (params[:queryCity] == "") & (params[:queryMinCapacity] == "") & (params[:queryArriveDate] == "") & (params[:queryLeaveDate] == "")
       redirect_to root_path
-      flash.notice = "empty search you baboon"
+      flash.notice = "Please enter at least one search term."
     else
       @places = Place.all
     end
@@ -18,8 +18,19 @@ class PlacesController < ApplicationController
     end
     
     if params[:queryArriveDate].present?
-      sql_query_date = "next_available < :queryDate"
-      @places = @places.where(sql_query_date, queryDate: params[:queryDate])
+      sql_query_arrive_date = "next_available <= :queryArriveDate"
+      @places = @places.where(sql_query_arrive_date, queryArriveDate: params[:queryArriveDate])
+    end
+
+    if (params[:queryLeaveDate].present?) && !(params[:queryArriveDate].present?)
+      redirect_to root_path
+      flash.notice = "Please enter an arriving date."
+    end
+
+    if (params[:queryLeaveDate].present?) && (params[:queryArriveDate].present?)
+      @places = @places.each do |place| 
+        place.available?(params[:queryArriveDate].to_date, params[:queryleaveDate])
+      end
     end
   end
 
