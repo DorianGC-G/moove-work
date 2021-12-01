@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_180853) do
+ActiveRecord::Schema.define(version: 2021_12_01_094649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2021_11_30_180853) do
     t.string "tags"
     t.integer "price_per_day"
     t.string "renter"
-    t.date "next_available"
     t.integer "max_capacity"
     t.integer "size"
     t.datetime "created_at", precision: 6, null: false

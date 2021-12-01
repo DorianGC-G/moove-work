@@ -18,8 +18,11 @@ class PlacesController < ApplicationController
     end
     
     if params[:queryArriveDate].present?
-      sql_query_arrive_date = "next_available <= :queryArriveDate"
-      @places = @places.where(sql_query_arrive_date, queryArriveDate: params[:queryArriveDate])
+      available = []
+      @places.each do |place|
+        available << place if place.start_available?(params[:queryArriveDate].to_date)
+      end
+      @places = available
     end
 
     if (params[:queryLeaveDate].present?) && !(params[:queryArriveDate].present?)
@@ -28,9 +31,11 @@ class PlacesController < ApplicationController
     end
 
     if (params[:queryLeaveDate].present?) && (params[:queryArriveDate].present?)
-      @places = @places.each do |place| 
-        place.available?(params[:queryArriveDate].to_date, params[:queryleaveDate])
+      available = []
+      @places.each do |place|
+        available << place if place.available?(params[:queryArriveDate].to_date, params[:queryleaveDate].to_date)
       end
+      @places = available
     end
   end
 
