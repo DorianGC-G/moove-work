@@ -1,0 +1,11 @@
+<h1></h1>
+<%= form_for(@place) do |f| %>
+  <%= f.text_field :address %>
+  <%= f.text_field :renter %>
+  <%= f.text_field :city %>
+  <%= f.text_field :categories %>
+  <%= f.text_field :tags %>
+  <%= f.number_field :price_per_day %>
+  <%= f.number_field :size %>
+  <%= submit_tag "Create new office" %>
+<% end %>

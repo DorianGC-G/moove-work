@@ -1,5 +1,34 @@
 class PlacesController < ApplicationController
   def index
+    @places = policy_scope(Place)
+    search
+  end
+
+  def show
+    @place = Place.find(params[:id])
+    authorize @place
+  end
+
+  def new
+    @place = Place.new
+    authorize @place
+  end
+
+  def create
+    @place = Place.new(place_params)
+    authorize @place
+    @place.user = current_user
+    @place.save
+    if @place.save
+      redirect_to place_path(@place)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def search
     if (params[:queryCity] == "") & (params[:queryMinCapacity] == "") & (params[:queryArriveDate] == "") & (params[:queryLeaveDate] == "")
       redirect_to root_path
       flash.notice = "Please enter at least one search term."
@@ -39,7 +68,7 @@ class PlacesController < ApplicationController
     end
   end
 
-  def show
-    @place = Place.find(params[:id])
+  def place_params
+    params.require(:place).permit(:address, :renter, :city, :categories, :tags, :price_per_day, :size)
   end
 end
