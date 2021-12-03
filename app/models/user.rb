@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reservations, dependent: :delete_all 
   has_many :places, dependent: :delete_all
+
+  def reservations?
+    reservations.present?
+  end
 end

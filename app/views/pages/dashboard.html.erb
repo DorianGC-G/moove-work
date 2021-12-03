@@ -1,0 +1,13 @@
+<h1>Dashboard</h1>
+<h2>Reservations</h2>
+<% if !@user.reservations? %>
+  <h3>You haven't placed a reservation yet.<h3>
+  <p>Discover our great offices all around the world.</p>
+  <%= link_to "Offices", places_path %>
+<% else %>
+  <% @user.reservations.each do |r| %>
+    <h3><%= r.place.city %></h3>
+    <h4><%= r.place.address %></h4>
+    <span>from <%= r.start_date.strftime("%B %e, %Y") %><br /> to <%= r.end_date.strftime("%B %e, %Y") %></span>
+  <% end %>
+<% end %>

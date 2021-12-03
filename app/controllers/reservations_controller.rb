@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @reservation.total_price = (@place.price_per_day * (@reservation.end_date - @reservation.start_date))
     if @reservation.save 
-      redirect_to root_path
+      redirect_to dashboard_path
     else 
       render 'places/show'
     end
