@@ -10,18 +10,18 @@ class PlacePolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin
+    user.admin # Only admins can create a place
   end
   
   def create?
-    user.admin
+    user.admin # Only admins can create a place
   end
 
   def update?
-    user.admin
+    user.admin # Only admins can update a place
   end
   
   def destroy?
-    user.admin
+    user.admin # Only admins can delete a place
   end
 end

@@ -1,3 +1,4 @@
+<h1>Our offices</h1>
 <% @places.each do |place| %>
   <%= link_to place.address, place_path(place) %><br />
   <%= place.city %>
@@ -6,3 +7,4 @@
   <%= r.start_date %><%= r.end_date %>
   <%end%><br />
 <% end %>
+<%= link_to 'Home', root_path%>

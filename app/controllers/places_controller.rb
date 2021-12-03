@@ -7,6 +7,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     authorize @place
+    @reservation = Reservation.new
   end
 
   def new
@@ -18,12 +19,34 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     authorize @place
     @place.user = current_user
-    @place.save
     if @place.save
       redirect_to place_path(@place)
     else
       render :new
     end
+  end
+
+  def edit
+    @place = Place.find(params[:id])
+    authorize @place
+  end
+
+  def update
+    @place = place.find(params[:id])
+    authorize @place
+    @place.update(place_params)
+    if @place.save
+      redirect_to place_path(@place)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @place = Place.find(params[:id])
+    authorize @place
+    @place.destroy
+    redirect_to root_path
   end
 
   private

@@ -1,6 +1,7 @@
 class Place < ApplicationRecord
   belongs_to :user
   has_many :reservations, dependent: :delete_all
+  validates :city, :address, :categories, :renter, :max_capacity, :price_per_day, :size, presence: true
 
   def available?(start_date, end_date)
     reservations.each do |reservation|

@@ -1,4 +1,4 @@
-<h1>Create a new place</h1>
+<h1>Edit <%= @place.address %></h1>
 <%= form_for(@place) do |f| %>
   <%= f.label 'Address' %>
   <%= f.text_field :address %><br />
@@ -14,7 +14,8 @@
   <%= f.number_field :price_per_day %><br />
   <%= f.label 'Size (in m²)'%>
   <%= f.number_field :size %><br />
-  <%= submit_tag "Create new office" %>
+  <%= submit_tag "Update this office" %>
 <% end %>
 
 <%= link_to 'Home', root_path %>
+<%= link_to 'Delete this office', place_path(@place), method: :delete %>
