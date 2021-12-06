@@ -5,25 +5,21 @@
   <span>I'm looking for a workplace in</span>
   <%= text_field_tag :queryCity,
     params[:queryCity],
-    class: "form-control",
     placeholder: "City"
   %><br />
   <span>for</span>
   <%= number_field_tag :queryMinCapacity,
     params[:queryMinCapacity],
-    class: "form-control",
     placeholder: "2"
   %><span> moove workers</span><br />
   <span>I'll arrive on </span>
   <%= date_field_tag :queryArriveDate,
     params[:queryDate],
-    class: "form-control",
     min: Date.tomorrow
   %><br />
   <span>and i'll leave on </span>
   <%= date_field_tag :queryLeaveDate,
     params[:queryLeaveDate],
-    class: "form-control",
     min: Date.tomorrow
   %>
   <%= submit_tag "Search" %>
