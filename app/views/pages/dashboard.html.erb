@@ -11,3 +11,10 @@
     <span>from <%= r.start_date.strftime("%B %e, %Y") %><br /> to <%= r.end_date.strftime("%B %e, %Y") %></span>
   <% end %>
 <% end %>
+
+<% if @user.admin %>
+  <% @places.each do |place| %>
+  <h2><%= place.address%></h2>
+  <%= link_to 'Update this office', edit_place_path(place.id) %>  
+  <% end %>
+<% end %>

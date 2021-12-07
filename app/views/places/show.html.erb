@@ -1,14 +1,11 @@
 <h1><%= @place.address %></h1>
 <h2><%= @place.price_per_day %>€ / day</h2>
-<%= link_to 'Update this office', edit_place_path if policy(@place).edit? %>
 
 <%= form_for(@reservation) do |f| %>
   <%= f.hidden_field :place_id, value: "#{@place.id}"%>
   <%= f.label 'Arriving date' %>
-  <%= f.date_field :start_date, min: Date.tomorrow %><br />
+  <%= f.date_field :start_date, min: Date.tomorrow, required: true %><br />
   <%= f.label 'Leaving date' %>
-  <%= f.date_field :end_date, min: Date.tomorrow %><br />
+  <%= f.date_field :end_date, min: Date.tomorrow, required: true %><br />
   <%= submit_tag 'Place a reservation' %>
 <% end %>
-
-<%# raise%>

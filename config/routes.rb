@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'reservations/new'
+  
   get 'dashboard', to: 'pages#dashboard'
   root to: 'pages#home'
 

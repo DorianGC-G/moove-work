@@ -4,5 +4,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @places = Place.all
   end
 end

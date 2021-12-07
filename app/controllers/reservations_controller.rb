@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
     if @reservation.save 
       redirect_to dashboard_path
     else
+      flash[:alert] = "This office is not available on those dates."
       render 'places/show'
     end
   end
