@@ -55,20 +55,20 @@ puts "Created #{user5.email}"
 puts "Creating places..."
 
 place1 = Place.create!(
-  categories: ["office", "meeting room"], 
+  categories: ["Open Spaces", "Meeting Rooms"], 
   tags:["parking", "bike storage", "natural light", "roof terrace", "outdoor spaces"], 
   price_per_day: 48, 
   renter: "WeWork", 
   max_capacity: 15, 
   size: 84, 
-  address: "82 Rue de Porte d'Orange", 
+  address: "82 Rue de Porte de Mandarinee", 
   city: "Paris 15th",
   user_id: admin1.id
 )
 puts "Created #{place1.address}"
 
 place2 = Place.create!(
-  categories: ["office", "meeting room"], 
+  categories: ["Open Spaces", "Meeting Rooms"], 
   tags:["parking", "bike storage", "natural light", "roof terrace", "outdoor spaces"], 
   price_per_day: 48, 
   renter: "WeWork", 
@@ -81,7 +81,7 @@ place2 = Place.create!(
 puts "Created #{place2.address}"
 
 place3 = Place.create!(
-  categories: ["office", "meeting room"], 
+  categories: ["Open Spaces", "Meeting Rooms"], 
   tags:["parking", "bike storage", "natural light", "roof terrace", "outdoor spaces"], 
   price_per_day: 48, 
   renter: "WeWork", 
@@ -94,7 +94,7 @@ place3 = Place.create!(
 puts "Created #{place3.address}"
 
 place4 = Place.create!(
-  categories: ["office", "meeting room"], 
+  categories: ["Open Spaces", "Meeting Rooms"], 
   tags:["parking", "bike storage", "natural light", "roof terrace", "outdoor spaces"], 
   price_per_day: 48, 
   renter: "WeWork",
@@ -107,20 +107,20 @@ place4 = Place.create!(
 puts "Created #{place4.address}"
 
 place5 = Place.create!(
-  categories: ["office", "meeting room"], 
+  categories: ["Open Spaces", "Meeting Rooms"], 
   tags:["parking", "bike storage", "natural light", "roof terrace", "outdoor spaces"], 
   price_per_day: 48, 
   renter: "WeWork", 
   max_capacity: 15, 
   size: 84, 
-  address: "115 rue Ernest Renand", 
+  address: "115 rue Ernest Rosier", 
   city: "Paris 7th",
   user_id: admin2.id
 )
 puts "Created #{place5.address}"
 
 place6 = Place.create!(
-  categories: ["office", "meeting room"], 
+  categories: ["Open Spaces", "Meeting Rooms"], 
   tags:["parking", "bike storage", "natural light", "roof terrace", "outdoor spaces"], 
   price_per_day: 48, 
   renter: "WeWork", 
@@ -133,13 +133,13 @@ place6 = Place.create!(
 puts "Created #{place6.address}"
 
 place7 = Place.create!(
-  categories: ["office", "meeting room"], 
+  categories: ["Open Spaces", "Meeting Rooms"], 
   tags:["parking", "bike storage", "natural light", "roof terrace", "outdoor spaces"], 
   price_per_day: 48, 
   renter: "WeWork", 
   max_capacity: 15, 
   size: 84, 
-  address: "41-43 Rue Camille-Desmoulins", 
+  address: "41-47 Rue Camille-Desmoulins", 
   city: "London",
   user_id: admin2.id
 )
@@ -170,8 +170,8 @@ puts "#{reservation2.user.email} made a reservation for #{reservation2.place.add
 reservation3 = Reservation.create!(
   user_id: user3.id,
   place_id: place2.id,
-  start_date: Date.new(2022,01,01),
-  end_date: Date.new(2022,02,01),
+  start_date: Date.new(2022,02,01),
+  end_date: Date.new(2022,03,01),
   total_price: place2.price_per_day * 31,
   status: "validated"
 )

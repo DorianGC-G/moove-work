@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_192858) do
+ActiveRecord::Schema.define(version: 2021_12_07_083127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "places", force: :cascade do |t|
-    t.string "categories"
-    t.string "tags"
     t.integer "price_per_day"
     t.string "renter"
     t.integer "max_capacity"
@@ -28,6 +26,8 @@ ActiveRecord::Schema.define(version: 2021_12_06_192858) do
     t.string "city"
     t.bigint "user_id"
     t.text "description"
+    t.text "tags", default: [], array: true
+    t.text "categories", default: [], array: true
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
