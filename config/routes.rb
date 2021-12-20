@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
-  get 'reservations/new'
-  
-  get 'dashboard', to: 'pages#dashboard'
-  root to: 'pages#home'
+  root 'pages#home'
+
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      get 'places/index'
+      resources :places
+      resources :reservations
+
+      get 'places', to: 'places#index'
       get 'places/:id', to: 'places#show'
       post 'places/create'
       delete 'places/id', to: 'places#delete'
     end
   end
 
+  get '*path', to: 'pages#home', via: :all
+
   devise_for :users
 
-  resources :places
-  resources :reservations
 end

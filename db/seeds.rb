@@ -63,7 +63,8 @@ place1 = Place.create!(
   size: 84, 
   address: "82 Rue de Porte de Mandarinee", 
   city: "Paris 15th",
-  user_id: admin1.id
+  user_id: admin1.id,
+  image_url: ["https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"]
 )
 puts "Created #{place1.address}"
 
@@ -76,7 +77,8 @@ place2 = Place.create!(
   size: 84, 
   address: "115 rue Ernest Renand", 
   city: "Paris 7th",
-  user_id: admin1.id
+  user_id: admin1.id,
+  image_url: ["https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"]
 )
 puts "Created #{place2.address}"
 
@@ -89,7 +91,8 @@ place3 = Place.create!(
   size: 84, 
   address: "41-43 Rue Camille-Desmoulins", 
   city: "Paris 11th",
-  user_id: admin1.id
+  user_id: admin1.id,
+  image_url: ["https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"]
 )
 puts "Created #{place3.address}"
 
@@ -102,7 +105,8 @@ place4 = Place.create!(
   size: 84, 
   address: "82 Rue de Porte d'Orange", 
   city: "Paris 7th",
-  user_id: admin1.id
+  user_id: admin1.id,
+  image_url: ["https://images.unsplash.com/photo-1604328698692-f76ea9498e76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"]
 )
 puts "Created #{place4.address}"
 
@@ -115,7 +119,8 @@ place5 = Place.create!(
   size: 84, 
   address: "115 rue Ernest Rosier", 
   city: "Paris 7th",
-  user_id: admin2.id
+  user_id: admin2.id,
+  image_url: ["https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"]
 )
 puts "Created #{place5.address}"
 
@@ -128,7 +133,8 @@ place6 = Place.create!(
   size: 84, 
   address: "41-43 Rue des jambons fromages", 
   city: "Paris 7th",
-  user_id: admin2.id
+  user_id: admin2.id,
+  image_url: ["https://images.unsplash.com/photo-1517502884422-41eaead166d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"]
 )
 puts "Created #{place6.address}"
 
@@ -141,7 +147,8 @@ place7 = Place.create!(
   size: 84, 
   address: "41-47 Rue Camille-Desmoulins", 
   city: "London",
-  user_id: admin2.id
+  user_id: admin2.id,
+  image_url: ["https://images.unsplash.com/photo-1572025442646-866d16c84a54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"]
 )
 puts "Created #{place7.address}"
 
